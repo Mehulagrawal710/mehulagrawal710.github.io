@@ -80,7 +80,7 @@
 
                 <section class="experience section">
                     <div class="section-inner shadow-sm rounded">
-                        <h2 class="heading">Work Experience</h2>
+                        <h2 class="heading">Work Experience (<span id="yoe"></span>) </h2>
                         <div class="content">
                             <div class="item">
                                 <h3 class="title">Software Development Engineer - <span class="place"><a href="https://juspay.in/">Juspay</a></span> <span class="year">(Apr 2022 - Present)</span></h3>
@@ -420,6 +420,19 @@
     <!-- Javascript -->
     <script>
         document.body.setAttribute("data-theme", "dark");
+        var yoeElement = document.getElementById("yoe");
+        var currentDate = new Date();
+        var startDate = new Date('2021-08-01');
+        var diffMonths = (currentDate.getFullYear() - startDate.getFullYear()) * 12;
+        diffMonths -= startDate.getMonth();
+        diffMonths += currentDate.getMonth();
+        var years = Math.floor(diffMonths / 12);
+        var months = diffMonths % 12;
+        if (diffMonths % 12 == 0){
+            yoeElement.innerHTML = years + "y"
+        }else{
+            yoeElement.innerHTML = years + "y " + (months + 1) + "m";
+        }
     </script>          
     <script type="text/javascript" src="assets/plugins/popper.min.js"></script> 
     <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>    
