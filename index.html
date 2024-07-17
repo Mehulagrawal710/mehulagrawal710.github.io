@@ -503,14 +503,13 @@
         var currentDate = new Date();
         var startDate = new Date('2021-08-01');
         var diffMonths = (currentDate.getFullYear() - startDate.getFullYear()) * 12;
-        diffMonths -= startDate.getMonth();
-        diffMonths += currentDate.getMonth();
+        diffMonths = diffMonths - startDate.getMonth() + currentDate.getMonth() + 1;
         var years = Math.floor(diffMonths / 12);
         var months = diffMonths % 12;
         if (diffMonths % 12 == 0){
             yoeElement.innerHTML = years + "y"
         }else{
-            yoeElement.innerHTML = years + "y " + (months + 1) + "m";
+            yoeElement.innerHTML = years + "y " + months + "m";
         }
     </script>          
     <script type="text/javascript" src="assets/plugins/popper.min.js"></script> 
